@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Team Ambition Project</title>
+    <link href="{{ url_for('static', filename='css/style.css') }}" rel="stylesheet" type="text/css" />
+  </head>
+  <body>
+    <!-- <script src="script.js"></script> -->
+    <nav>
+      <ul class="Navbar">
+        <li class="Rightnow"><a href="index.html">Listings</a></li>
+        <li><a href="Create.html">Create a list</a></li>
+        <li><a href="About.html">About</a></li>
+        <li><a href="FAQ.html">FAQ</a></li>
+      </ul>
+    </nav>
+    <section class="container">
+      <!--When adding a new listing, this is the format
+       <div class="listings">
+          <p class="ListingText">Name:John Aveeno</p>
+          <p class="ListingText">Catagory:Food</p>
+          <p class="ListingText">Area: Vancouver</p>
+      </div>
+      -->
+      <div class="listings">
+          <p class="ListingText">Name: John Aveeno</p>
+          <p class="ListingText">Catagory: Grocery</p>
+          <p class="ListingText">Area: Vancouver</p>
+          <img class="arrow" src="{{ url_for('static', filename='images/arrow.png') }}">
+      </div>
+      <div class="listings">
+        
+      </div>
+      <div class="listings">
+        
+      </div>
+      <div class="listings">
+        
+      </div>
+    </section>
+    <footer>
+        <h3>XD HACKS - Team Ambition</h3>
+        <p>By: Donald, Victor, Leo, Angela, and Jason</p>
+    </footer>
+  </body>
+</html>

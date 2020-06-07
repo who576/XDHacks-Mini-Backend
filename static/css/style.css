@@ -1,0 +1,110 @@
+html,
+body {
+    width:100%;
+    height:100%;
+    box-sizing: border-box;
+    margin:0;
+    background:#F5F5F5;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  }
+
+.Navbar {
+    list-style-type: none;
+    margin: 0;
+    padding: 10px;
+    overflow: hidden;
+    background-color: #333;
+}
+li {
+    display: inline;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size:40px;
+}
+li a {
+  text-decoration:none;
+  color:white;
+}
+li a:hover {
+  animation:glow 0.5s infinite;
+}
+@keyframes glow {
+  to {
+    text-shadow: 0 0 5px #fff, 0 0 10px #F0FFFF, 0 0 15px #F0FFFF, 0 0 20px #0000FF, 0 0 25px #0000FF, 0 0 30px #0000FF, 0 0 30px #0000FF;
+  }
+}
+.container {
+    position:relative;
+    display: grid;
+    grid-template-columns: auto auto auto;
+    padding: 2% 17.5%;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); /*Without 1fr, the boxes will not move down responsively.*/
+    align-items: center;
+    bottom: 0%;
+}
+/*The boxes*/
+.listings {
+    position: relative;
+    height: 250px;
+    width: 400px;
+    margin: 2% 1%; /*1st value is the vertical spacing between the boxes, 2nd is the horizontal spacing between the boxes*/
+    border-radius: 50px;
+    background: rgb(31, 46, 255);
+}
+.ListingText {
+  position:relative;
+  top:-5%;
+  font-weight:bold;
+  font-size:35px;
+  padding-left:35px;
+}
+.arrow {
+  position:relative;
+  width:40px;
+  height:auto;
+  left:82.5%;
+  bottom:12vh;
+  z-index:10;
+}
+.arrow:hover{
+ transform: scale(1.5);
+}
+
+.listings:nth-child(1) {
+  
+}
+
+.button {
+  background-color: rgb(78, 76, 175);
+  border: none;
+  color: rgb(255, 255, 255);
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+}
+
+footer {
+  bottom:100vh;
+  padding: 20px;
+  text-align: center;
+  background: #ddd;
+  background-color: rgba(51, 51, 51, 0.705);
+
+}
+.Rightnow {
+  animation: rightnow 5s infinite ease-in;
+}
+@keyframes rightnow {
+  from {
+    text-shadow: 0 0 5px #fff, 0 0 10px #F0FFFF, 0 0 15px #F0FFFF, 0 0 20px #0000FF, 0 0 25px #1E90FF, 0 0 30px rgb(0, 0, 255), 0 0 30px #1E90FF;
+  }
+  to {
+    text-shadow: 0 0 5px #fff, 0 0 10px #F0FFFF, 0 0 15px #F0FFFF, 0 0 20px #0000FF, 0 0 25px #1E90FF, 0 0 30px rgb(0, 0, 255), 0 0 30px #1E90FF;
+  }
+}

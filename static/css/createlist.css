@@ -1,0 +1,84 @@
+
+button { /*Removes button borders and outline*/
+	background-color: Transparent;
+	padding: 0;
+	border: none;
+	outline:none;  
+}
+.left {
+  position:relative;
+  left:5%;
+}
+.right {
+  position:relative;
+  left:50%;
+  bottom:55vh;
+}
+label {
+  font-size:44px;
+}
+input {
+  font-size:14px; /*Text in the input boxes*/
+}
+input :nth-child(1){
+  border: none;
+	outline:none; 
+}
+.listbox { /*Input box for the list*/
+  position:relative;
+  height:50vh;
+  width:40vw;
+  border-radius:20px;
+}
+.ambox {
+  position:relative;
+  height:20vh;
+  width:45vw;
+  border-radius:0px;
+}
+.postbutton{
+  position:relative;
+  background:#0066FF;
+  width:225px;
+  height:75px;
+  left:45vw;
+  top:-50vh;
+  border-radius:40px;
+  font-size: 40px;
+  animation: glowbutton 5s infinite;
+}
+@keyframes glowbutton {
+to {
+    text-shadow: 0 0 5px #fff, 0 0 10px #F0FFFF, 0 0 15px #F0FFFF, 0 0 20px #0000FF, 0 0 25px #0000FF, 0 0 30px #0000FF, 0 0 30px #0000FF;
+  }
+}
+.postbutton:hover {
+  background: linear-gradient(to top left, #000000 0%, #0099cc 90%);
+  color:white;
+  cursor:pointer;
+  animation:glowbutton2 5s infinite;
+  transform:scale(1.05);
+}
+@keyframes glowbutton2 {
+  from {
+    text-shadow: 0 0 5px #fff, 0 0 10px #F0FFFF, 0 0 15px #F0FFFF, 0 0 20px #696969, 0 0 25px #000000, 0 0 30px #000000, 0 0 30px #000000;
+  }
+}
+to {
+    text-shadow: 0 0 5px #fff, 0 0 10px #F0FFFF, 0 0 15px #F0FFFF, 0 0 20px #696969, 0 0 25px #000000, 0 0 30px #000000, 0 0 30px #000000;
+  }
+}
+.Posttext {
+  position:relative;
+ text-align:center;
+  top:-2.5vh;
+}
+.Rightnow {
+  animation: rightnow 4 infinite;
+}
+@keyframes rightnow {
+  from{}
+  to {
+    text-shadow: 0 0 5px #fff, 0 0 10px #F0FFFF, 0 0 15px #F0FFFF, 0 0 20px #0000FF, 0 0 25px #ffffff, 0 0 30px #000080, 0 0 30px #ffffff;
+  }
+}
