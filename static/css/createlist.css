@@ -37,15 +37,17 @@ input :nth-child(1){
   border-radius:0px;
 }
 .postbutton{
-  position:relative;
+   position: relative;
   background:#0066FF;
   width:225px;
   height:75px;
-  left:45vw;
   top:-50vh;
+  margin: 0 auto;
   border-radius:40px;
   font-size: 40px;
   animation: glowbutton 5s infinite;
+  left: 50vw;
+  margin-left: -50px;
 }
 @keyframes glowbutton {
 to {
@@ -63,15 +65,16 @@ to {
   from {
     text-shadow: 0 0 5px #fff, 0 0 10px #F0FFFF, 0 0 15px #F0FFFF, 0 0 20px #696969, 0 0 25px #000000, 0 0 30px #000000, 0 0 30px #000000;
   }
-}
-to {
+
+  to {
     text-shadow: 0 0 5px #fff, 0 0 10px #F0FFFF, 0 0 15px #F0FFFF, 0 0 20px #696969, 0 0 25px #000000, 0 0 30px #000000, 0 0 30px #000000;
   }
 }
 .Posttext {
-  position:relative;
- text-align:center;
-  top:-2.5vh;
+position:relative;
+text-align:center;
+bottom:2.5vh;
+color:black;
 }
 .Rightnow {
   animation: rightnow 4 infinite;

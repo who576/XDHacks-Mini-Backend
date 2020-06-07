@@ -19,12 +19,29 @@
 
 from flask import *
 from flask_sqlalchemy import SQLAlchemy
+import os
+from wtf import *
 
 app = Flask(  # Create a flask app
 	__name__,
 	template_folder='templates',  # Name of html file folder
 	static_folder='static'  # Name of directory for static files
 )
+
+# ----- auto update css begin
+@app.context_processor
+def override_url_for():
+    return dict(url_for=dated_url_for)
+
+def dated_url_for(endpoint, **values):
+    if endpoint == 'static':
+        filename = values.get('filename', None)
+        if filename:
+            file_path = os.path.join(app.root_path,
+                                 endpoint, filename)
+            values['q'] = int(os.stat(file_path).st_mtime)
+    return url_for(endpoint, **values)
+# ----- auto update css end
 
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///db.sqlite3'
@@ -70,8 +87,10 @@ def get_user(name):
 def base_page():
 	return render_template('index.html')
 
-@app.route('/Create.html')
+@app.route('/Create.html', methods=['GET', 'POST'])
 def create_page():
+  # cform = CreateForm()
+
 	return render_template('Create.html')
 
 @app.route('/About.html')

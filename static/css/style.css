@@ -51,7 +51,7 @@ li a:hover {
     width: 400px;
     margin: 2% 1%; /*1st value is the vertical spacing between the boxes, 2nd is the horizontal spacing between the boxes*/
     border-radius: 50px;
-    background: rgb(31, 46, 255);
+    background: lightblue;
 }
 .ListingText {
   position:relative;
@@ -90,11 +90,13 @@ li a:hover {
 }
 
 footer {
-  bottom:100vh;
+  position:relative;
+  width:100vw;
+  bottom:0%;
   padding: 20px;
   text-align: center;
-  background: #ddd;
-  background-color: rgba(51, 51, 51, 0.705);
+  background-color: rgba(51, 51, 51, 1);
+  z-index:999;
 
 }
 .Rightnow {
@@ -108,3 +110,16 @@ footer {
     text-shadow: 0 0 5px #fff, 0 0 10px #F0FFFF, 0 0 15px #F0FFFF, 0 0 20px #0000FF, 0 0 25px #1E90FF, 0 0 30px rgb(0, 0, 255), 0 0 30px #1E90FF;
   }
 }
+/*FAQ PAGE CSS*/
+.questions {
+  position:relative;
+  font-weight: bold;
+  font-size:20px;
+  left:5%;
+}
+.answers {
+ position:relative;
+  font-size:20px;
+  left:5%;
+}
+/*END OF FAQ CSS*/
