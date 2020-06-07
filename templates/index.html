@@ -12,7 +12,7 @@
   <body>
     <!-- <script src="script.js"></script> -->
     <div class="headerimage">
-    <img class="himage" src="{{ url_for('static', filename='images/headerimage.png') }}">
+    	<img class="himage" src="{{ url_for('static', filename='images/headerimage.png') }}">
     </div>
     </header>
     <nav>
@@ -33,7 +33,7 @@
 		{% endif %}
 	{% endwith %}
 	</div>
-
+	<h1 class="PINOS">People in need of supplies:</h1>
     <section class="container">
       <!--When adding a new listing, this is the format
        <div class="listings">
@@ -55,6 +55,7 @@
             </div>
         	</div>
       	</a>
+
 	{% endfor %}
       <!-- <a class="ListingText" href="/Listing.html">
         <div class="listings">

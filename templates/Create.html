@@ -22,7 +22,10 @@
 			<li><a href="/FAQ.html">FAQ</a></li>
 		</ul>
 	</nav>
-
+ <div class="backbutton">
+       <a href="/index.html"><img class="backbuttonimg" src="{{ url_for('static', filename='images/arrow.png') }}"></a>
+      <span class="tooltip">View Listings!</span>
+  </div>
 	<section class="createpage">
 	<form action="" , method="POST">
 		<div class="left">
@@ -32,8 +35,10 @@
 		</div>
         <!-- <input class="listbox" type="text" id="list" name="list" placeholder="Example: eggs, carrot, ham, whole wheat bread, butter, etc."></input> -->
 		<!-- </br> -->
-		<p class="beware">Beware: Do not accept any aid from anyone demanding for payment! This is most likely a scam. Also check out the <a target="_blank" href="https://antifraudcentre-centreantifraude.ca/features-vedette/2020/covid-19-eng.htm">Government of Canada's</a> website to find out more about recent scams.</p>
 		</div>
+    <div class="banner">
+    <p class="beware">Beware: Do not accept any aid from anyone demanding for payment! This is most likely a scam. Also check out the <a target="_blank" href="https://antifraudcentre-centreantifraude.ca/features-vedette/2020/covid-19-eng.htm">Government of Canada's</a> website to find out more about recent scams.</p> </div>
+
     <div class="right">
      <label class="name" for="Name">Name:</label>
 	 <!-- <div class="listbox"> -->

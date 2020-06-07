@@ -1,4 +1,4 @@
-# import pyrebase
+	# import pyrebase
 
 # config = {
 #   "apiKey": "AIzaSyCw8B4O1W2QWvJxLiKkYU7jV1gdxiJ7fN4",
@@ -20,9 +20,13 @@
 from flask import *
 from flask_sqlalchemy import SQLAlchemy
 from datetime import datetime
+import pytz
+
 import os
 
 from wtf import *
+
+date_format='%Y/%m/%d %H:%M:%S %Z'
 
 app = Flask(  # Create a flask app
 	__name__,
@@ -66,12 +70,19 @@ class User(db.Model):
 
 # ----- reset data in case of error
 # db.create_all()
+# ----- print db
 # t = User.query.all()
 # print(t)
 # ----- manual delete by id
-# t = User.query.get(8)
-# print(t)
+# t = User.query.get(12)
 # db.session.delete(t)
+# db.session.commit()
+
+# ----- change datetime
+# t = User.query.get(7)
+# print(t.date.strftime(date_format))
+# t.date = t.date.astimezone(pytz.timezone('US/Pacific'))
+# print(t.date.strftime(date_format))
 # db.session.commit()
 
 # ----- add test
@@ -100,7 +111,7 @@ class User(db.Model):
 @app.route('/index.html')
 def base_page():
 	posts = User.query.all()
-	return render_template('index.html', posts=posts, len=len(posts))
+	return render_template('index.html', posts=posts[::-1], len=len(posts))
 
 @app.route('/Create.html', methods=['GET', 'POST'])
 def create_page():
@@ -113,6 +124,11 @@ def create_page():
 		print(results)
 		post = User(list=results[0],name=results[1],age=results[2],email=results[3],tel=results[4],city=results[5],category=results[6],about=results[7])
 		db.session.add(post)
+		db.session.commit()
+		p = User.query.get(post.id)
+		print(p.date.strftime(date_format))
+		p.date = p.date.astimezone(pytz.timezone('US/Pacific'))
+		print(p.date.strftime(date_format))
 		db.session.commit()
 		flash('You have successfully posted your list!')
 		return redirect(url_for('base_page'))
@@ -130,7 +146,7 @@ def faq_page():
 @app.route('/Listing.html/<post_id>')
 def listing_page(post_id):
 	post = User.query.get(post_id)
-	return render_template('Listing.html', post=post)
+	return render_template('Listing.html', post=post, date=post.date.strftime(date_format))
 
 if __name__ == "__main__":
 	app.run(host='0.0.0.0')

@@ -4,12 +4,12 @@ from wtforms.validators import InputRequired, Length, EqualTo, ValidationError, 
 from wtforms.widgets import TextArea
 
 class CreateForm(FlaskForm):
-	list = TextAreaField('list', validators=[InputRequired(message="invalid")], widget=TextArea())
-	name = StringField('name', validators=[InputRequired(message="invalid")])
-	age = IntegerField('age', validators=[InputRequired(message="invalid")])
-	email = StringField('email', validators=[InputRequired(message="invalid")])
-	tel = StringField('number', validators=[InputRequired(message="invalid")])
-	city = StringField('city', validators=[InputRequired(message="invalid")])
-	category = StringField('category', validators=[InputRequired(message="invalid")])
-	about = TextAreaField('about', validators=[InputRequired(message="invalid")], widget=TextArea())
+	list = TextAreaField('list', validators=[InputRequired()], widget=TextArea())
+	name = StringField('name', validators=[InputRequired()])
+	age = IntegerField('age', validators=[InputRequired()])
+	email = StringField('email', validators=[InputRequired()])
+	tel = StringField('number', validators=[InputRequired()])
+	city = StringField('city', validators=[InputRequired()])
+	category = StringField('category', validators=[InputRequired()])
+	about = TextAreaField('about', validators=[InputRequired()], widget=TextArea())
 	submit = SubmitField('Post')
