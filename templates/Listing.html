@@ -7,17 +7,45 @@
 	<link rel="icon" href="static/images/logo.png">
     <!--^^^-->
     <link href="{{ url_for('static', filename='css/style.css') }}" rel="stylesheet" type="text/css" />
+    <link href="{{ url_for('static', filename='css/listing.css') }}" rel="stylesheet" type="text/css" />
   </head>
     <body>
+      <div class="headerimage">
+    <img class="himage" src="{{ url_for('static', filename='images/headerimage.png') }}">
+    </div>
  <nav>
       <ul class="Navbar">
-        <li><a href="index.html">View Listings</a></li>
-        <li><a href="Create.html">Create a list</a></li>
-        <li><a href="About.html">About</a></li>
-        <li><a href="FAQ.html">FAQ</a></li>
+        <li><a href="/index.html">View Listings</a></li>
+        <li><a href="/Create.html">Create a list</a></li>
+        <li><a href="/About.html">About</a></li>
+        <li><a href="/FAQ.html">FAQ</a></li>
       </ul>
 </nav>
-
+<div class="listingscontainer"> 
+  <h1 class="listitems">{{ post.name }}</h1>
+  <p class="listitems">{{ post.age }} years old</p>
+  <p class="listitems">City: {{ post.city }}</p>
+  <p class="listitems">Catagory: {{ post.category }}</p>
+  <p class="listitems">List:<div class="listlistlist"> {{ post.list }} </div></p>
+  <p class="listitems">Datetime: {{ post.date }}</p>
+  <p class="listitemsabout">About me:<div class="aboutlist"> {{ post.about }} </div></p>
+  <table class="phoneinfo">
+    <tr>
+      <th>Phone Number: </th>
+    </tr>
+    <tr>
+      <td>{{ post.tel }}</td>
+    </tr>
+  </table>
+  <table class="emailinfo">
+  <tr>
+  <th>Email: </th>
+  </tr>
+  <tr>
+   <td>{{ post.email }}</td>
+  </tr>
+  </table>
+</div>
 <footer>
   <h3 style="color:white;">XD HACKS - Team Ambition</h3>
   <p style="color:white;">By: Donald, Victor, Leo, and Angela</p>

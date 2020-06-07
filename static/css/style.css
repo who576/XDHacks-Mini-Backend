@@ -9,13 +9,13 @@ body {
   }
  .headerimage {
    position:relative;
-  width: 100vw; /* width of container */
-  height:auto;
+  width: auto; /* width of container */
+  height: 20%;
   object-fit: cover;
  }
  .himage {
-   width:auto;
-   height:200px;
+   width: auto;
+   height: 20vh;
  }
  @media only screen and (max-width: 600px) {
  .himage {
@@ -26,9 +26,9 @@ body {
 .Navbar {
     list-style-type: none;
     margin: 0;
-    padding: 0px;
+    padding: 5px 0;
     overflow: hidden;
-    background-color: #333;
+    background-color: #202020;
 }
 @media only screen and (max-width: 1600px) {
   li {
@@ -85,12 +85,12 @@ li a:hover {
 }
 @media only screen and (max-width: 1600px) {
   .container {
-    padding: 2% 5.5%;
+    padding: 2% 0%;
   }
 }
 @media only screen and (max-width: 1300px) {
   .container {
-    padding: 2% 3%;
+    padding: 2% 0%;
   }
 }
 @media only screen and (max-width: 900px) {
@@ -127,12 +127,40 @@ li a:hover {
 }
 .ListingText {
   position:relative;
-  top:5%;
+  top:15%;
   font-weight:bold;
-  font-size:35px;
+  font-size:30px;
   padding-left:35px;
   color:black;
   text-decoration:none;
+}
+.bio { /*The users about me bio*/
+  visibility: hidden;
+	position:absolute;
+	font-size: 25px;
+	color:black;
+  left:40px;
+	top:0%;
+	text-align:left;
+	width:80%;
+}
+.listings:hover .bio { /*Whenever a listings box is hovered, their description appears*/
+  visibility: visible;
+  animation:spinvisible 1.2s 1;
+}
+@keyframes spinvisible {
+  0%{visibility:hidden;}
+  49%{visibility:hidden;}
+  50%{visibility: visible; transform: rotateY(180deg);}
+  75%{  visibility: visible; transform: rotateY(-90deg);}
+}
+.listings:hover .ListingText { /*Whenever a box is hovered, the user's main info*/
+  visibility: hidden;
+  animation:spininvisible 1.2s 1;
+}
+@keyframes spininvisible {
+  0%{visibility:visible;}
+  50%{  visibility: hidden; transform: rotateY(180deg);}
 }
 @media only screen and (max-width: 400px) { /*Phones*/
   .listings {
@@ -147,21 +175,42 @@ li a:hover {
   padding-left:35px;
 }
 }
+.arrowtip {
+  position:relative;
+  width:40px;
+  height:auto;
+  left:75%;
+  bottom:12vh;
+  z-index:10;
+}
 .arrow {
   position:relative;
   width:40px;
   height:auto;
-  left:82.5%;
-  bottom:12vh;
+  left:36.5%;
+  top:50px;
   z-index:10;
 }
 .arrow:hover{
  transform: scale(1.5);
 }
-
-.listings:nth-child(1) {
+.arrowtip .tooltip {
+  visibility: hidden;
+  width: 180px;
+  font-size:15px;;
+  background-color: rgba(0, 0, 0, 0.685);
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px 0;
+  position: absolute;
   
+  z-index: 1;
 }
+.arrowtip:hover .tooltip {
+  visibility: visible;
+}
+
 
 .button {
   background-color: rgb(78, 76, 175);
@@ -179,22 +228,16 @@ li a:hover {
 footer {
   position:relative;
   width:100vw;
+  top:10%;
   bottom:0%;
+  box-sizing: border-box;
   padding: 20px;
   text-align: center;
   background-color: rgba(0, 0, 0, 0.747);
   z-index:999;
+  overflow: hidden;
 }
 
-specialFooter {
-  position:fixed;
-  width:100vw;
-  bottom:0%;
-  padding: 20px;
-  text-align: center;
-  background-color: rgba(0, 0, 0, 0.747);
-  z-index:999;
-}
 
 .Rightnow {
   animation: rightnow 5s infinite ease-in;
@@ -209,25 +252,31 @@ specialFooter {
 }
 /*FAQ PAGE CSS*/
 .questions {
+  top:5%;
   position:relative;
   font-weight: bold;
   font-size:20px;
   left:5%;
+  width:87vw;
 }
 .answers {
- position:relative;
+  top:5%;
+  position:relative;
   font-size:20px;
   left:5%;
+  width:95vw;
 }
 /*END OF FAQ CSS*/
 
 
 /*ABOUT PAGE CSS*/
-.aboutQuestions {
+.aboutQuestions{
   position:relative;
+  left:5%;
   font-weight: bold;
   font-size:20px;
-  left:5%; 
+  width: 95%;
+  /* left:5%; */
 }
 
 /*ABOUT PAGE CSS*/

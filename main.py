@@ -19,6 +19,7 @@
 
 from flask import *
 from flask_sqlalchemy import SQLAlchemy
+from datetime import datetime
 import os
 
 from wtf import *
@@ -60,14 +61,18 @@ class User(db.Model):
 	tel = db.Column(db.String(30), nullable=False)
 	city = db.Column(db.String(30), nullable=False)
 	category = db.Column(db.String(30), nullable=False)
+	date = db.Column(db.DateTime, default=datetime.now)
 	about = db.Column(db.String(100), nullable=False)
 
+# ----- reset data in case of error
 # db.create_all()
 # t = User.query.all()
-# for i in range(len(t)):
-# 	list,_,_,_,_,_,_,_ = t[i]
-# 	print(list)
-# print(t[0].name)
+# print(t)
+# ----- manual delete by id
+# t = User.query.get(8)
+# print(t)
+# db.session.delete(t)
+# db.session.commit()
 
 # ----- add test
 #     return '<h1>Added New User!</h1>'
@@ -97,10 +102,6 @@ def base_page():
 	posts = User.query.all()
 	return render_template('index.html', posts=posts, len=len(posts))
 
-@app.route('/test.html')
-def test_page():
-	return render_template('test.html')
-
 @app.route('/Create.html', methods=['GET', 'POST'])
 def create_page():
 	cform = CreateForm()
@@ -113,11 +114,10 @@ def create_page():
 		post = User(list=results[0],name=results[1],age=results[2],email=results[3],tel=results[4],city=results[5],category=results[6],about=results[7])
 		db.session.add(post)
 		db.session.commit()
-		# return render_template('test.html', result=result)
-		# return redirect(url_for('test_page'))
+		flash('You have successfully posted your list!')
+		return redirect(url_for('base_page'))
 
 	return render_template('Create.html', form=cform)
-	# return render_template('Create.html')
 
 @app.route('/About.html')
 def about_page():
@@ -127,9 +127,10 @@ def about_page():
 def faq_page():
 	return render_template('FAQ.html')
 
-@app.route('/Listing.html')
-def listing_page():
-	return render_template('Listing.html')
+@app.route('/Listing.html/<post_id>')
+def listing_page(post_id):
+	post = User.query.get(post_id)
+	return render_template('Listing.html', post=post)
 
 if __name__ == "__main__":
 	app.run(host='0.0.0.0')

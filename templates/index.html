@@ -17,12 +17,23 @@
     </header>
     <nav>
       <ul class="Navbar">
-        <li class="Rightnow"><a href="index.html">Listings</a></li>
-        <li><a href="Create.html">Create a list</a></li>
-        <li><a href="About.html">About</a></li>
-        <li><a href="FAQ.html">FAQ</a></li>
+        <li class="Rightnow"><a href="/index.html">Listings</a></li>
+        <li><a href="/Create.html">Create a list</a></li>
+        <li><a href="/About.html">About</a></li>
+        <li><a href="/FAQ.html">FAQ</a></li>
       </ul>
     </nav>
+
+	<div class="flash_msg">
+	{% with messages = get_flashed_messages() %}
+		{% if messages %}
+			{% for message in messages %}
+				<h1 class="msg">{{message}}</h1>
+			{% endfor %}
+		{% endif %}
+	{% endwith %}
+	</div>
+
     <section class="container">
       <!--When adding a new listing, this is the format
        <div class="listings">
@@ -32,12 +43,16 @@
       </div>
       -->
 	{% for i in range(len) %}
-		<a class="ListingText" href="/Listing.html">
+		<a class="ListingText" href="/Listing.html/{{posts[i].id}}">
         	<div class="listings">
             <p class="ListingText">Name: {{ posts[i].name }}</p>
             <p class="ListingText">Category: {{ posts[i].category }}</p>
             <p class="ListingText">Area: {{ posts[i].city }}</p>
+             <p class="bio">About me: {{ posts[i].about }}</p>
+            <div class="arrowtip">
             <img class="arrow" src="{{ url_for('static', filename='images/arrow.png') }}">
+            <span class="tooltip">View Full Listing!</span>
+            </div>
         	</div>
       	</a>
 	{% endfor %}
