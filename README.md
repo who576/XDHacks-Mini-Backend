@@ -1,3 +1,3 @@
-# XDHacks-Mini-Covid
+# CarePackages4U
 # By Team Ambition
 Members: Leo, Donald, Angela, and Victor
