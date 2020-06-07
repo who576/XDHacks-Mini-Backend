@@ -19,7 +19,7 @@ body {
  }
  @media only screen and (max-width: 600px) {
  .himage {
-    width:100vw;
+    width:auto;
     height:20vh;
  }
   .headerimage {
@@ -111,7 +111,6 @@ li a:hover {
   width:40px;
   height:auto;
   z-index:10;
-  transform: scaleX(-1) scaleX(-1);
 }
 .backbuttonimg:hover{
  transform: scale(1.5);
@@ -330,14 +329,14 @@ footer {
   font-weight: bold;
   font-size:20px;
   left:5%;
-  width:87vw;
+  width:85vw;
 }
 .answers {
   top:5%;
   position:relative;
   font-size:20px;
   left:5%;
-  width:95vw;
+  width:85vw;
 }
 /*END OF FAQ CSS*/
 

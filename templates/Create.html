@@ -10,7 +10,7 @@
 	<link href="{{ url_for('static', filename='css/style.css') }}" rel="stylesheet" type="text/css" />
 </head>
 
-<body>
+<body style="overflow-x:hidden;">
 	<div class="headerimage">
 		<img class="himage" src="{{ url_for('static', filename='images/headerimage.png') }}">
     </div>
@@ -39,7 +39,7 @@
     <div class="banner">
     <p class="beware">Beware: Do not accept any aid from anyone demanding for payment! This is most likely a scam. Also check out the <a target="_blank" href="https://antifraudcentre-centreantifraude.ca/features-vedette/2020/covid-19-eng.htm">Government of Canada's</a> website to find out more about recent scams.</p> </div>
 
-    <div class="right">
+    <div class="right" style="overflow:hidden;">
      <label class="name" for="Name">Name:</label>
 	 <!-- <div class="listbox"> -->
 	 {{ form.name(class_='form-control',placeholder='Bill Smith') }}
@@ -96,7 +96,7 @@
 <!-- <button div class="postbutton"><p class="Posttext">Post!</p></button> -->
 
 <!--FOOTER-->
-<div class="CreateListFooter">
+<div class="CreateListFooter" style="overflow:hidden;">
 <h3 style="color:white;">XD HACKS - Team Ambition</h3>
   <p style="color:white;">By: Donald, Victor, Leo, and Angela</p>
 </div>

@@ -74,7 +74,7 @@ class User(db.Model):
 # t = User.query.all()
 # print(t)
 # ----- manual delete by id
-# t = User.query.get(12)
+# t = User.query.get(13)
 # db.session.delete(t)
 # db.session.commit()
 
