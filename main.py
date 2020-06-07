@@ -20,6 +20,7 @@
 from flask import *
 from flask_sqlalchemy import SQLAlchemy
 import os
+
 from wtf import *
 
 app = Flask(  # Create a flask app
@@ -46,21 +47,29 @@ def dated_url_for(endpoint, **values):
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///db.sqlite3'
 
+app.config['SECRET_KEY'] = 'idk'
+
 db = SQLAlchemy(app)
 
 class User(db.Model):
-  id = db.Column(db.Integer, primary_key=True)
-  list = db.Column(db.String(100), nullable=False)
-  name = db.Column(db.String(30), nullable=False)
-  age = db.Column(db.Integer, nullable=False)
-  email = db.Column(db.String(100), nullable=False)
-  number = db.Column(db.String(30), nullable=False)
-  city = db.Column(db.String(30), nullable=False)
-  category = db.Column(db.String(30), nullable=False)
-  about = db.Column(db.String(100), nullable=False)
+	id = db.Column(db.Integer, primary_key=True)
+	list = db.Column(db.String(100), nullable=False)
+	name = db.Column(db.String(30), nullable=False)
+	age = db.Column(db.Integer, nullable=False)
+	email = db.Column(db.String(100), nullable=False)
+	tel = db.Column(db.String(30), nullable=False)
+	city = db.Column(db.String(30), nullable=False)
+	category = db.Column(db.String(30), nullable=False)
+	about = db.Column(db.String(100), nullable=False)
+
+# db.create_all()
+# t = User.query.all()
+# for i in range(len(t)):
+# 	list,_,_,_,_,_,_,_ = t[i]
+# 	print(list)
+# print(t[0].name)
 
 # ----- add test
-# db.create_all()
 #     return '<h1>Added New User!</h1>'
 # test = User(list='random stuff', name='test', age=20, email='test@example.com', number='123456789', city='Vancouver', category='test', about='something about me')
 # db.session.add(test)
@@ -74,24 +83,41 @@ class User(db.Model):
 #     db.session.commit()
 
 # ----- check test
-@app.route('/<name>')
-def get_user(name):
-  user = User.query.filter_by(name=name).first()
+# @app.route('/<name>')
+# def get_user(name):
+# 	user = User.query.filter_by(name=name).first()
 
-  return f'<h1>age: { user.age }</h1><br><h1>email: { user.email }</h1>'
+# 	return f'<h1>age: { user.age }</h1><br><h1>email: { user.email }</h1>'
 
 # ----- routes below
 
 @app.route('/')
 @app.route('/index.html')
 def base_page():
-	return render_template('index.html')
+	posts = User.query.all()
+	return render_template('index.html', posts=posts, len=len(posts))
+
+@app.route('/test.html')
+def test_page():
+	return render_template('test.html')
 
 @app.route('/Create.html', methods=['GET', 'POST'])
 def create_page():
-  # cform = CreateForm()
+	cform = CreateForm()
+	if request.method == 'POST' and cform.validate_on_submit:
+		result = request.form
+		results = []
+		for key,value in result.items():
+			results.append(value)
+		print(results)
+		post = User(list=results[0],name=results[1],age=results[2],email=results[3],tel=results[4],city=results[5],category=results[6],about=results[7])
+		db.session.add(post)
+		db.session.commit()
+		# return render_template('test.html', result=result)
+		# return redirect(url_for('test_page'))
 
-	return render_template('Create.html')
+	return render_template('Create.html', form=cform)
+	# return render_template('Create.html')
 
 @app.route('/About.html')
 def about_page():
@@ -100,6 +126,10 @@ def about_page():
 @app.route('/FAQ.html')
 def faq_page():
 	return render_template('FAQ.html')
+
+@app.route('/Listing.html')
+def listing_page():
+	return render_template('Listing.html')
 
 if __name__ == "__main__":
 	app.run(host='0.0.0.0')

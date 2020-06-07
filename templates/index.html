@@ -2,12 +2,19 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width">
-    <title>Team Ambition Project</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <title>CarePackages4U | Listings</title>
+    <!--Icon of the website-->
+	<link rel="icon" href="static/images/logo.png">
+    <!--^^^-->
     <link href="{{ url_for('static', filename='css/style.css') }}" rel="stylesheet" type="text/css" />
   </head>
   <body>
     <!-- <script src="script.js"></script> -->
+    <div class="headerimage">
+    <img class="himage" src="{{ url_for('static', filename='images/headerimage.png') }}">
+    </div>
+    </header>
     <nav>
       <ul class="Navbar">
         <li class="Rightnow"><a href="index.html">Listings</a></li>
@@ -24,46 +31,85 @@
           <p class="ListingText">Area: Vancouver</p>
       </div>
       -->
-      <div class="listings">
-          <p class="ListingText">Name: John Doe</p>
-          <p class="ListingText">Category: Grocery</p>
-          <p class="ListingText">Area: Ottawa</p>
-          <img class="arrow" src="{{ url_for('static', filename='images/arrow.png') }}">
-      </div>
+	{% for i in range(len) %}
+		<a class="ListingText" href="/Listing.html">
+        	<div class="listings">
+            <p class="ListingText">Name: {{ posts[i].name }}</p>
+            <p class="ListingText">Category: {{ posts[i].category }}</p>
+            <p class="ListingText">Area: {{ posts[i].city }}</p>
+            <img class="arrow" src="{{ url_for('static', filename='images/arrow.png') }}">
+        	</div>
+      	</a>
+	{% endfor %}
+      <!-- <a class="ListingText" href="/Listing.html">
+        <div class="listings">
+            <p class="ListingText">Name: John Doe</p>
+            <p class="ListingText">Category: Grocery</p>
+            <p class="ListingText">Area: Ottawa</p>
+            <img class="arrow" src="{{ url_for('static', filename='images/arrow.png') }}">
+        </div>
+      </a>
+      <a class="ListingText" href="/Listing.html">
       <div class="listings">
         <p class="ListingText">Name: Bob Chungus</p>
           <p class="ListingText">Category: Toiletries</p>
           <p class="ListingText">Area: Vancouver</p>
           <img class="arrow" src="{{ url_for('static', filename='images/arrow.png') }}">
       </div>
+      </a>
+      <a class="ListingText" href="/Listing.html">
       <div class="listings">
         <p class="ListingText">Name: Kevin Chun</p>
           <p class="ListingText">Category: Drinks</p>
           <p class="ListingText">Area: Burnaby</p>
           <img class="arrow" src="{{ url_for('static', filename='images/arrow.png') }}">
       </div>
+      </a>
+      <a class="ListingText" href="/Listing.html">
       <div class="listings">
         <p class="ListingText">Name: Louis Mace</p>
           <p class="ListingText">Category: Toiletries</p>
           <p class="ListingText">Area: Vancouver</p>
           <img class="arrow" src="{{ url_for('static', filename='images/arrow.png') }}">
       </div>
+      </a>
+      <a class="ListingText" href="/Listing.html">
       <div class="listings">
         <p class="ListingText">Name: Rachel Wood</p>
           <p class="ListingText">Category: Toiletries</p>
           <p class="ListingText">Area: Vancouver</p>
           <img class="arrow" src="{{ url_for('static', filename='images/arrow.png') }}">
       </div>
+      </a>
+      <a class="ListingText" href="/Listing.html">
       <div class="listings">
         <p class="ListingText">Name: Ash Load</p>
           <p class="ListingText">Category: Groceries</p>
           <p class="ListingText">Area: Vancouver</p>
           <img class="arrow" src="{{ url_for('static', filename='images/arrow.png') }}">
       </div>
+      </a>
+      <a class="ListingText" href="/Listing.html">
+      <div class="listings">
+        <p class="ListingText">Name: Ash Load</p>
+          <p class="ListingText">Category: Groceries</p>
+          <p class="ListingText">Area: Vancouver</p>
+          <img class="arrow" src="{{ url_for('static', filename='images/arrow.png') }}">
+      </div>
+      </a>
+      <a class="ListingText" href="/Listing.html">
+      <div class="listings">
+        <p class="ListingText">Name: Ash Load</p>
+          <p class="ListingText">Category: Groceries</p>
+          <p class="ListingText">Area: Vancouver</p>
+          <img class="arrow" src="{{ url_for('static', filename='images/arrow.png') }}">
+      </div>
+      </a> -->
+    
     </section>
     <footer>
-        <h3>XD HACKS - Team Ambition</h3>
-        <p>By: Donald, Victor, Leo, Angela, and Jason</p>
+        <h3 style="color:white;">XD HACKS - Team Ambition</h3>
+        <p style="color:white;">By: Donald, Victor, Leo, and Angela</p>
     </footer>
   </body>
 </html>

@@ -1,45 +1,90 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <link href="{{ url_for('static', filename='css/createlist.css') }}" rel="stylesheet" type="text/css" />
-    <link href="{{ url_for('static', filename='css/style.css') }}" rel="stylesheet" type="text/css" />
-  </head>
-    <body>
- <nav>
-      <ul class="Navbar">
-        <li><a href="index.html">View Listings</a></li>
-        <li class="Rightnow"><a href="Create.html">Create a list</a></li>
-        <li><a href="About.html">About</a></li>
-        <li><a href="FAQ.html">FAQ</a></li>
-      </ul>
-</nav>
-<section>
-  <form>
-    <div class="left">
-        <label for="list">My List:</label></br>
-        <input class="listbox" type="text" id="list" name="list" placeholder="Example: eggs, carrot, ham, whole wheat bread, butter, etc."></input></br>
+
+<head>
+   <title>CarePackages4U | Create a Listing</title>
+   <!--Icon of the website-->
+	<link rel="icon" href="static/images/logo.png">
+    <!--^^^-->
+	<link href="{{ url_for('static', filename='css/createlist.css') }}" rel="stylesheet" type="text/css" />
+	<link href="{{ url_for('static', filename='css/style.css') }}" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+	<nav>
+		<ul class="Navbar">
+			<li><a href="index.html">View Listings</a></li>
+			<li class="Rightnow"><a href="Create.html">Create a list</a></li>
+			<li><a href="About.html">About</a></li>
+			<li><a href="FAQ.html">FAQ</a></li>
+		</ul>
+	</nav>
+	<section>
+	<form action="" , method="POST">
+		<div class="left">
+		<label for="list">My List:</label>
+		<div class="listbox">
+		{{ form.list(class_='form-control',placeholder='eggs, carrot, ham, whole wheat bread, butter, etc.') }}
+		</div>
+        <!-- <input class="listbox" type="text" id="list" name="list" placeholder="Example: eggs, carrot, ham, whole wheat bread, butter, etc."></input> -->
+		<!-- </br> -->
+    <p class="beware">Beware: Do not accept any the aid from anyone demanding for payment! This is most likely a scam. Also check out the <a target="_blank" href="https://antifraudcentre-centreantifraude.ca/features-vedette/2020/covid-19-eng.htm">Government of Canada's</a> website to find out more about recent scams.</p>
     </div>
     <div class="right">
      <label class="name" for="Name">Name:</label>
-      <input type="text" id="Name" name="Name" placeholder="Example: Bill Smith"></input></br>
+	 <div class="listbox">
+	 {{ form.name(class_='form-control',placeholder='Bill Smith') }}
+	 </div>
+      <!-- <input type="text" id="Name" name="Name" placeholder="Example: Bill Smith"></input> -->
+	  <!-- </br> -->
       <label for="Age">Age:</label>
-      <input type="number" id="Age" name="Age" placeholder="Example: 79"></input></br>
+	  <div class="listbox">
+	 {{ form.age(class_='form-control',placeholder='79') }}
+	  </div>
+      <!-- <input type="number" id="Age" name="Age" placeholder="Example: 79"></input> -->
+	  <!-- </br> -->
       <label for="Email">Email:</label>
-      <input type="email" id="Email" name="Email" placeholder="Example: someone123.gmail.com"></input></br>
+	  <div class="listbox">
+	 {{ form.email(class_='form-control',placeholder='someone123@gmail.com') }}
+	  </div>
+      <!-- <input type="email" id="Email" name="Email" placeholder="Example: someone123.gmail.com"></input> -->
+	  <!-- </br> -->
       <label for="tel">Number:</label>
-      <input type="tel" id="tel" name="tel" placeholder="Example: 604-111-199"></input></br>
+	  <div class="listbox">
+	 {{ form.tel(class_='form-control',placeholder='604-111-1199') }}
+	  </div>
+      <!-- <input type="tel" id="tel" name="tel" placeholder="Example: 604-111-199"></input> -->
+	  <!-- </br> -->
       <label for="City">City:</label>
-      <input type="text" id="City" name="City" placeholder="Example: Vancouver, BC"></input></br>
+	  <div class="listbox">
+	 {{ form.city(class_='form-control',placeholder='Vancouver') }}
+	  </div>
+      <!-- <input type="text" id="City" name="City" placeholder="Example: Vancouver, BC"></input> -->
+	  <!-- </br> -->
       <label for="Category">Category:</label>
-      <input type="text" id="Category" name="Category" placeholder="Example: Food"></input></br>
-      <label for="Aboutme">About me:</label></br>
-      <input class="ambox" type="text" id="Aboutme" name="Aboutme" placeholder="Write a short summary about yourself!"></input>
+	  <div class="listbox">
+	 {{ form.category(class_='form-control',placeholder='food') }}
+	  </div>
+      <!-- <input type="text" id="Category" name="Category" placeholder="Example: Food"></input> -->
+	  <!-- </br> -->
+      <label for="Aboutme">About me:</label>
+	  <!-- </br> -->
+	  <div class="listbox">
+	 {{ form.about(class_='form-control',placeholder='Write a short summary about yourself!') }}
+	  </div>
+      <!-- <input class="ambox" type="text" id="Aboutme" name="Aboutme" placeholder="Write a short summary about yourself!"></input> -->
     </div>
+
+	{{ form.csrf_token }}
+	<div class="form-group">
+    <input type="submit" value="Post" class="postbutton">
+	</div>
   </form>
 </section>
-<button div class="postbutton"><p class="Posttext">Post!</p></button>
-<footer>
-<h3>XD HACKS - Team Ambition</h3>
-  <p>By: Donald, Victor, Leo, Angela, and Jason</p>
+<!-- <div> {{ form.submit }} </div> -->
+<!-- <button div class="postbutton"><p class="Posttext">Post!</p></button> -->
+<footer class="CAL">
+<h3 style="color:white;">XD HACKS - Team Ambition</h3>
+  <p style="color:white;">By: Donald, Victor, Leo, and Angela</p>
 </footer>
 </body>

@@ -8,11 +8,12 @@ button { /*Removes button borders and outline*/
 .left {
   position:relative;
   left:5%;
+  top:5vh;
 }
 .right {
-  position:relative;
+  position:absolute;
   left:50%;
-  bottom:55vh;
+  top:10vh;
 }
 label {
   font-size:44px;
@@ -24,10 +25,14 @@ input :nth-child(1){
   border: none;
 	outline:none; 
 }
-.listbox { /*Input box for the list*/
+/* text_area {
+	width: 100px;
+	height: 50px;
+} */
+.listbox div{ /*Input box for the list*/
   position:relative;
-  height:50vh;
-  width:40vw;
+  height:5vh;
+  width:50vw;
   border-radius:20px;
 }
 .ambox {
@@ -37,16 +42,18 @@ input :nth-child(1){
   border-radius:0px;
 }
 .postbutton{
-   position: relative;
+   position: absolute;
   background:#0066FF;
+  	border: none;
+	outline:none;  
   width:225px;
   height:75px;
-  top:-50vh;
+  top:85vh;
   margin: 0 auto;
   border-radius:40px;
   font-size: 40px;
   animation: glowbutton 5s infinite;
-  left: 50vw;
+  left: 30vw;
   margin-left: -50px;
 }
 @keyframes glowbutton {
@@ -84,4 +91,19 @@ color:black;
   to {
     text-shadow: 0 0 5px #fff, 0 0 10px #F0FFFF, 0 0 15px #F0FFFF, 0 0 20px #0000FF, 0 0 25px #ffffff, 0 0 30px #000080, 0 0 30px #ffffff;
   }
+}
+.CAL {
+  position:absolute;
+  width:100vw;
+  height:20vh;
+  top:130%;
+  padding: 20px;
+  text-align: center;
+  background-color: rgba(51, 51, 51, 1);
+  z-index:999;
+}
+.beware {
+  width:40vw;
+  background:lightcoral;
+  color:black;
 }
